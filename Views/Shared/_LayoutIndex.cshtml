@@ -1,0 +1,125 @@
+﻿
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<Utilizator> SignInManager
+@inject UserManager<Utilizator> UserManager
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Turismul In Capitalele Europene</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Turismul in Capitalele Europene</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+
+                        @if (this.User.IsInRole("Utilizator"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                        }
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="CapitalaTurist" asp-action="Index">Calatorii</a>
+                            </li>
+                        }
+
+                        @if (this.User.IsInRole("Administrator"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Turist" asp-action="Index">Turisti</a>
+                            </li>
+                        }
+                        @if (this.User.IsInRole("Utilizator"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="navbardrop">Info</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-area="" asp-controller="Capitala" asp-action="Index">Tabela Capitale</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Turist" asp-action="Index">Tabela Scoruri</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Nivel" asp-action="Index">Tabela Nivele</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="navbardrop">Comunitate</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-area="" asp-controller="Intrebare" asp-action="Index">Intrebari</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Raspuns" asp-action="Index">Raspunsuri</a>
+                                </div>
+                            </li>
+                        }
+                        @if (this.User.IsInRole("Administrator"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="navbardrop">Administrare</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-area="" asp-controller="Capitala" asp-action="Index">Capitale</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Nivel" asp-action="Index">Niveluri</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="navbardrop">Comunitate</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-area="" asp-controller="Intrebare" asp-action="Index">Intrebari</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Raspuns" asp-action="Index">Raspunsuri</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Utilizator" asp-action="Index">Utilizatori</a>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <ul class="navbar-nav">
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name! <span><img src="@Url.Action("Imagine", "Home")" width="40px" height="40px" onerror="this.style.display='none'" /></span></a>
+                    </li>
+                        <li class="nav-item">
+                            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                <button type="submit" class="nav-link btnav btn-link text-dark">Logout</button>
+                            </form>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </nav>
+    </header>
+    @*<div class="container">*@
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+    @*</div>*@
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 - Web_Application_Database - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

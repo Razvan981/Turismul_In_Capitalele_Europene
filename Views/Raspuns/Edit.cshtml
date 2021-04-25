@@ -1,0 +1,56 @@
+﻿
+<link href="https://fonts.googleapis.com/css?family=Tangerine:700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="~/css/site.css" />
+
+@model Turismul_In_Capitalele_Europene.Models.Raspuns
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<center>
+
+    <div class="titlupag">Editare Raspuns</div>
+
+</center>
+
+<div style="text-align:center">
+    <div class="camp1">
+        <div class="camp">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="RaspunsId" />
+                <div class="form-group">
+                    <label asp-for="IntrebareId" class="control-label"></label>
+                    <select asp-for="IntrebareId" class="form-control" asp-items="ViewBag.IntrebareId"></select>
+                    <span asp-validation-for="IntrebareId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="hidden" asp-for="UtilizatorId" class="form-control" asp-items="ViewBag.UtilizatorId" />
+                    <span asp-validation-for="UtilizatorId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Data" class="control-label"></label>
+                    <input asp-for="Data" class="form-control" />
+                    <span asp-validation-for="Data" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Continut" class="control-label"></label>
+                    <input asp-for="Continut" class="form-control" />
+                    <span asp-validation-for="Continut" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="btn">
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

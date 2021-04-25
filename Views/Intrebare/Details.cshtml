@@ -1,0 +1,45 @@
+﻿
+<link href="https://fonts.googleapis.com/css?family=Tangerine:700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="~/css/site.css" />
+
+
+@model Turismul_In_Capitalele_Europene.Models.Intrebare
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<center>
+
+    <div class="titlupag_detalii">Detalii Intrebare</div>
+
+</center>
+<div class="camp1">
+    <div class="camp_detalii">
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Utilizator)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Utilizator.Nume)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Data)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Data)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Continut)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Continut)
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<div class="btn">
+    @*<a asp-action="Edit" asp-route-id="@Model.IntrebareId">Edit</a> |*@
+    <a asp-action="Index">Back to List</a>
+</div>

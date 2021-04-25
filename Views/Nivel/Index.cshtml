@@ -1,0 +1,69 @@
+﻿
+<link href="https://fonts.googleapis.com/css?family=Tangerine:700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="~/css/site.css" />
+
+@model IEnumerable<Turismul_In_Capitalele_Europene.Models.Nivel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<center>
+
+    <div class="titlupag">Index Nivel</div>
+
+</center>
+
+@if (this.User.IsInRole("Administrator"))
+{
+    <div class="btn">
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
+    </div>
+}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Denumire)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Punctaj_min)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Punctaj_max)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Denumire)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Punctaj_min)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Punctaj_max)
+                    </td>
+                    <td>
+                        @if (this.User.IsInRole("Administrator"))
+                        {
+                        <a asp-action="Edit" asp-route-id="@item.NivelId">Edit</a>
+                        }
+
+                        <a asp-action="Details" asp-route-id="@item.NivelId">Details</a>
+
+                        @if (this.User.IsInRole("Administrator"))
+                        {
+                            <a asp-action="Delete" asp-route-id="@item.NivelId">Delete</a>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

@@ -1,0 +1,69 @@
+﻿
+<link href="https://fonts.googleapis.com/css?family=Tangerine:700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="~/css/site.css" />
+
+
+@model IEnumerable<Turismul_In_Capitalele_Europene.Models.Intrebare>
+
+@{
+    ViewData["Title"] = "Index";
+    string userId = ViewData["UserId"] as string;
+}
+
+<center>
+
+    <div class="titlupag">Intrebari</div>
+
+</center>
+
+<div class="btn">
+    <p>
+        <a asp-action="Create">Adauga o Intrebare</a>
+    </p>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Utilizator)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Continut)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Utilizator.Nume)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Continut)
+                </td>
+                <td>
+                    @if (userId == item.UtilizatorId)
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.IntrebareId">Edit</a>
+                    }
+
+                    <a asp-action="Details" asp-route-id="@item.IntrebareId">Details</a>
+
+                    @if (this.User.IsInRole("Administrator") || userId == item.UtilizatorId)
+                    {
+                        <a asp-action="Delete" asp-route-id="@item.IntrebareId">Delete</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

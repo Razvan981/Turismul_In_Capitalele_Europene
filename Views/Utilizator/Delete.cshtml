@@ -1,0 +1,63 @@
+﻿
+<link href="https://fonts.googleapis.com/css?family=Tangerine:700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="~/css/site.css" />
+
+
+@model Turismul_In_Capitalele_Europene.Models.Utilizator
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<center>
+
+    <div class="titlupag">Stergere Utilizator</div>
+
+</center>
+
+<h3>Esti sigur ca vrei sa stergi acest utilizator?</h3>
+<div class="camp1">
+    <div class="camp_detalii">
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Nume)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Nume)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Prenume)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Prenume)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Numar_Intrebari)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Numar_Intrebari)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Numar_Raspunsuri)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Numar_Raspunsuri)
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <input type="submit" value="Delete" class="btn btn-danger" />
+    <div class="btn">
+        <a asp-action="Index">Back to List</a>
+    </div>
+</form>
+

@@ -1,0 +1,57 @@
+﻿
+<link href="https://fonts.googleapis.com/css?family=Tangerine:700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="~/css/site.css" />
+
+@model Turismul_In_Capitalele_Europene.Models.Turist
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<center>
+
+    <div class="titlupag">Editare Turist</div>
+
+</center>
+
+<div class="col-md-4">
+    <div class="camp1">
+        <div class="camp">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="TuristId" />
+                <div class="form-group">
+                    <label asp-for="UtilizatorId" class="control-label"></label>
+                    <select asp-for="UtilizatorId" class="form-control" asp-items="ViewBag.UtilizatorId"></select>
+                    <span asp-validation-for="UtilizatorId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="NivelId" class="control-label"></label>
+                    <select asp-for="NivelId" class="form-control" asp-items="ViewBag.NivelId"></select>
+                    <span asp-validation-for="NivelId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Locatii_Vizitate" class="control-label"></label>
+                    <input asp-for="Locatii_Vizitate" class="form-control" />
+                    <span asp-validation-for="Locatii_Vizitate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Scor" class="control-label"></label>
+                    <input asp-for="Scor" class="form-control" />
+                    <span asp-validation-for="Scor" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="btn">
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

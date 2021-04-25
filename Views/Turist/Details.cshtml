@@ -1,0 +1,50 @@
+﻿
+<link href="https://fonts.googleapis.com/css?family=Tangerine:700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="~/css/site.css" />
+
+@model Turismul_In_Capitalele_Europene.Models.Turist
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<center>
+
+    <div class="titlupag_detalii">Detalii Turist</div>
+
+</center>
+<div class="camp1">
+    <div class="camp_detalii">
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Utilizator)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Utilizator.Nume)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Nivel)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Nivel.Denumire)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Locatii_Vizitate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Locatii_Vizitate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Scor)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Scor)
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<div class="btn">
+    @*<a asp-action="Edit" asp-route-id="@Model.TuristId">Edit</a> |*@
+    <a asp-action="Index">Back to List</a>
+</div>

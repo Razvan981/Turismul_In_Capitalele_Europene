@@ -1,0 +1,78 @@
+﻿
+<link href="https://fonts.googleapis.com/css?family=Tangerine:700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="~/css/site.css" />
+
+@model IEnumerable<Turismul_In_Capitalele_Europene.Models.Turist>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<center>
+
+    <div class="titlupag">Index Turist</div>
+
+</center>
+
+@if (this.User.IsInRole("Administrator"))
+{
+    <div class="btn">
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
+    </div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Utilizator)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nivel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Locatii_Vizitate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Scor)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Utilizator.Nume)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nivel.Denumire)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Locatii_Vizitate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Scor)
+                </td>
+                <td>
+                    @*@if (this.User.IsInRole("Administrator"))
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.TuristId">Edit</a>
+                    }*@
+
+                    @if (this.User.IsInRole("Utilizator"))
+                    {
+                        <a asp-action="Details" asp-route-id="@item.TuristId">Details</a>
+                    }
+                    @if (this.User.IsInRole("Administrator"))
+                    {
+                        <a asp-action="Delete" asp-route-id="@item.TuristId">Delete</a>
+                    }
+                    </td>
+            </tr>
+        }
+    </tbody>
+</table>

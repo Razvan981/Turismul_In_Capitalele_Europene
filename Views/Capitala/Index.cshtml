@@ -1,0 +1,91 @@
+﻿
+<link href="https://fonts.googleapis.com/css?family=Tangerine:700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="~/css/site.css" />
+
+@model IEnumerable<Turismul_In_Capitalele_Europene.Models.Capitala>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<center>
+
+    <div class="titlupag">Index Capitala</div>
+
+</center>
+
+@if (this.User.IsInRole("Administrator"))
+{
+    <div class="btn">
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
+    </div>
+}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Denumire)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tara)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Regiune)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fondare_secol)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Populatie)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Suprafata_kmp)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Denumire)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tara)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Regiune)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fondare_secol)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Populatie)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Suprafata_kmp)
+                    </td>
+                    <td>
+                        
+                        @if (this.User.IsInRole("Administrator"))
+                        {
+                            <a asp-action="Edit" asp-route-id="@item.CapitalaId">Edit </a>
+                        }
+
+                        <a asp-action="Details" asp-route-id="@item.CapitalaId"> Details </a> 
+
+                        @if (this.User.IsInRole("Administrator"))
+                        {
+                            <a asp-action = "Delete" asp-route-id = "@item.CapitalaId" > Delete </a>
+                        }
+
+                     </td>
+                     </tr>
+             }
+    </tbody>
+    </table>
+
+

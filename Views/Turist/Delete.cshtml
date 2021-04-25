@@ -1,0 +1,56 @@
+﻿
+<link href="https://fonts.googleapis.com/css?family=Tangerine:700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="~/css/site.css" />
+
+@model Turismul_In_Capitalele_Europene.Models.Turist
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<center>
+
+    <div class="titlupag">Stergere Turist</div>
+
+</center>
+
+<h3>Esti sigur ca vrei sa stergi aceasta inregistrare?</h3>
+<div class="camp1">
+    <div class="camp_detalii">
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Locatii_Vizitate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Locatii_Vizitate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Scor)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Scor)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Utilizator)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Utilizator.Nume)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Nivel)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Nivel.Denumire)
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="TuristId" />
+    <input type="submit" value="Delete" class="btn btn-danger" /> 
+    <div class="btn">
+        <a asp-action="Index">Back to List</a>
+    </div>
+</form>
+
