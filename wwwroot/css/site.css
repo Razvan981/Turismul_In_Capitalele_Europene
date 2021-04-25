@@ -1,0 +1,221 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    background: url("../images/turism2.png") no-repeat center center;
+    margin-bottom: 60px;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+th, td {
+    text-align: center;
+    color: black;
+    padding: 16px;
+}
+
+tr:nth-child(even) {
+    background-color: #E0F2F7;
+}
+
+tr:nth-child(odd) {
+    background-color: #58D3F7;
+}
+
+.btn {
+    background: #e5e5e5;
+    height: 60px;
+    text-align: center;
+    line-height: 45px;
+    text-transform: uppercase;
+    color: #2F3240;
+    border-color: #021BD1;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    border-radius: 16px;
+}
+
+.btnav {
+    margin-top: 5px;
+    background: #58D3F7;
+    text-align: center;
+    color: #2F3240;
+    border-color: #021BD1;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 16px;
+}
+
+.camp1 {
+    margin-left: 10px;
+}
+
+.camp {
+    font-size: 20px;
+    text-align: center;
+    font-weight: bolder;
+    color: mediumblue;
+    margin-bottom: 0px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.67);
+    border-radius: 40px;
+}
+
+.camp_viziteaza {
+    background-color: rgba(255, 255, 255, 0.90);
+    border-radius: 65px;
+}
+
+.camp_manager {
+    font-size: 20px;
+    text-align: center;
+    font-weight: bolder;
+    color: mediumblue;
+    margin-bottom: 0px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.92);
+    border-radius: 65px;
+}
+
+.camp_manager_menu {
+    font-size: 17px;
+    text-align: center;
+    font-weight: bolder;
+    color: mediumblue;
+    margin-bottom: 0px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.72);
+    border-radius: 0px;
+}
+
+.camplogin {
+    font-size: 20px;
+    text-align: center;
+    font-weight: bolder;
+    color: mediumblue;
+    margin-bottom: 0px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.77);
+    border-radius: 35px;
+}
+
+.camp_detalii {
+    padding-left: 240px;
+    font-size: 20px;
+    text-align: center;
+    font-weight: initial;
+    color: mediumblue;
+    margin-bottom: 0px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.87);
+    border-radius: 65px;
+}
+
+.titlupag_detalii {
+    font-weight: bold;
+    font-size: 80px;
+    font-family: "Tangerine",cursive;
+    padding-top: 7px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.titlu_register {
+    font-weight: bold;
+    font-size: 67px;
+    font-family: "Tangerine",cursive;
+    padding-top: 7px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.titlupag {
+    font-weight: bold;
+    font-size: 60px;
+    font-family: "Tangerine",cursive;
+    padding-top: 7px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+#text_overflow {
+    display: block;
+    width: 350px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
