@@ -1,0 +1,34 @@
+﻿
+<link href="https://fonts.googleapis.com/css?family=Tangerine:700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="~/css/site.css" />
+
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<center>
+
+    <div class="titlupag_detalii">Administreaza-ti contul</div>
+
+</center>
+
+<div>
+    <h3>Schimbați-vă setările contului</h3>
+    <hr />
+    <div class="row">
+        <div class="col-md-3">
+            <partial name="_ManageNav" />
+        </div>
+        <div class="col-md-9">
+            <div class="camp1">
+                <div class="camp_manager">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}
